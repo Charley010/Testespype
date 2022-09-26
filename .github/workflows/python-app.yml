@@ -10,17 +10,29 @@ on:
 
 jobs:
   build-job:
+  
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: python3 -V
-
+      
   test-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: python3 TESTEPIPELINEATP.py
-
+      
+      - uses: AppThreat/sast-scan-action@master
+        with:
+          type: "python"
+          
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: charleycordeiro/charleycordeiroatpdevops
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
   deploy-job:
     runs-on: ubuntu-latest
     steps:
