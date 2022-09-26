@@ -1,4 +1,4 @@
-name: TESTEPYPE_GIT_CHARLEY
+name: PIPEEEE_ATP_CHALEY
 
 on:
   push:
@@ -19,10 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: IMC ATV pype.py
+      - run: python3 IMC ATV pype.py
 
   deploy-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: echo "Finalizado!"
+    
+    
