@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: IMC ATV pype.py
+      - run: python3 TESTEPIPELINEATP.py
 
   deploy-job:
     runs-on: ubuntu-latest
